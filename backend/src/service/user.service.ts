@@ -37,4 +37,4 @@ export class UserService {
       async getOne(email): Promise<User> {
         return await this.userModel.findOne({ email }).exec();
     }
-    
+  }    

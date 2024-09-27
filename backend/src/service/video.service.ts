@@ -66,6 +66,7 @@ export class VideoService {
     return await this.videoModel.findByIdAndUpdate(id, video, { new: true });
   }
   async delete(id): Promise<any> {
-    return await this.videoModel.findByIdAndRemove(id);
+    return await this.videoModel.findByIdAndDelete(id);
+
   }
 }
