@@ -37,7 +37,7 @@ export class VideoService {
       const { range } = request.headers;
       if (range) {
         const { video } = data;
-        const videoPath = statSync(join(process.cwd(), `./public/${video}`));
+        const videoPath = statSync(join(process.cwd(), `public`, video));
         const CHUNK_SIZE = 1 * 1e6;
         const start = Number(range.replace(/\D/g, ''));
         const end = Math.min(start + CHUNK_SIZE, videoPath.size - 1);

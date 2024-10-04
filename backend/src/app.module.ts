@@ -19,7 +19,9 @@ import { RequestMethod, MiddlewareConsumer } from '@nestjs/common';
 import { isAuthenticated } from './app.middleware'
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost:27017/Stream'),
+    MongooseModule.forRoot(
+      'mongodb://main_user:123123123@localhost:27017/Stream?authSource=admin'
+    ),
     MulterModule.register({
       storage: diskStorage({
         destination: './public',
@@ -36,7 +38,9 @@ import { isAuthenticated } from './app.middleware'
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'public'),
     }),
-    MongooseModule.forRoot('mongodb://localhost:27017/Stream'),
+    MongooseModule.forRoot(
+      'mongodb://main_user:123123123@localhost:27017/Stream?authSource=admin'
+    ),
     MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
     MongooseModule.forFeature([{ name: Video.name, schema: VideoSchema }]),
   ],
